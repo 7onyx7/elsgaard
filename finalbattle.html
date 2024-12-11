@@ -1,0 +1,181 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="An amazing RNG-based game! WARNING:(will make you rage)">
+<meta name="keywords" content="JavaScript, JavaScript game, RNG game, game, HTML game">
+<meta name="author" content="Romeo Shamoun">
+<title>Battle!</title>
+<script type="text/JavaScript">
+monster = new Array()
+monster[0] = "Uldaar-Vauldufen, the Greater Demon of Darkness" 
+
+health = new Array()
+health[0] = "1000000"
+
+damage = new Array()
+damage[0] = "0"
+damage[1] = "1"
+damage[2] = "10000"
+damage[3] = "100000"
+damage[4] = "100000"
+damage[5] = "100000"
+damage[6] = "25000"
+damage[7] = "25000"
+damage[8] = "150000"
+damage[9] = "70000"
+damage[10] = "80000"
+damage[11] = "52173"
+damage[12] = "323082"
+damage[13] = "28697"
+damage[14] = "100000"
+damage[15] = "50000"
+damage[16] = "280000"
+damage[17] = "165439"
+damage[18] = "0"
+damage[19] = "150000"
+damage[20] = "194383"
+damage[21] = "132432"
+damage[22] = "34212"
+damage[23] = "248945"
+damage[24] = "25963"
+damage[25] = "500000"
+
+enemydamage = new Array()
+enemydamage[0] = "0"
+enemydamage[1] = "1"
+enemydamage[2] = "10000"
+enemydamage[3] = "249999"
+enemydamage[4] = "40235"
+enemydamage[5] = "100000"
+enemydamage[6] = "25000"
+enemydamage[7] = "25000"
+enemydamage[8] = "150000"
+enemydamage[9] = "70000"
+enemydamage[10] = "80000"
+enemydamage[11] = "52173"
+enemydamage[12] = "323082"
+enemydamage[13] = "28697"
+enemydamage[14] = "100000"
+enemydamage[15] = "50000"
+enemydamage[16] = "280000"
+enemydamage[17] = "165439"
+enemydamage[18] = "0"
+enemydamage[19] = "10"
+enemydamage[20] = "194383"
+enemydamage[21] = "132432"
+enemydamage[22] = "34212"
+enemydamage[23] = "248945"
+enemydamage[24] = "21231"
+enemydamage[25] = "123456789"
+
+now = new Date()
+
+hnum = (now.getMilliseconds())%1
+
+dnum = (now.getMilliseconds())%26
+
+ednum = (now.getMilliseconds())%26
+
+var h = Number(health[hnum])
+
+var d = Number(damage[dnum])
+
+function pickmonster()
+{
+
+now = new Date()
+num = (now.getMilliseconds())%1
+document.myform.ename.value = monster[num]
+
+}
+
+function pickhealth()
+{
+
+now = new Date()
+hnum 
+document.myform.ehealth.value = Number(health[hnum])
+
+}
+
+function dmg()
+{
+
+now = new Date()
+dnum = (now.getMilliseconds())%26
+var h = Number(document.myform.ehealth.value)
+var d = Number(damage[dnum])
+var val = h - d
+document.myform.ehealth.value = Number(val)
+alert("You have inflicted " + d + " damage!!!");
+
+if (document.myform.ehealth.value <= 0)
+{
+
+alert("You defeated " + document.myform.ename.value + "!")
+top.location.href = "info11.html"
+
+}
+
+if (document.myform.ehealth.value > 0)
+{
+
+eattack()
+
+}
+
+}
+
+function run()
+{
+
+alert("The power of the darkness holds you back from running.")
+
+}
+
+function eattack()
+{
+
+now = new Date()
+ednum = (now.getMilliseconds())%26
+alert(document.myform.ename.value + " is attacking!")
+var yh = Number(document.myform.yhealth.value)
+var yd = Number(enemydamage[ednum])
+var at = yh - yd
+document.myform.yhealth.value = Number(at)
+alert(document.myform.ename.value + " inflicted " + yd + " damage!!!");
+
+if (document.myform.yhealth.value <= 0)
+{
+
+alert("You have been slain...")
+top.location.href = "death.html"
+
+}
+}
+
+</script>
+</head>
+
+<body onLoad="pickmonster(),pickhealth()" bgcolor="#000000">
+<center>
+<form name="myform">
+<input type="text" disabled="disabled" name="ename" value="" size="45">
+<br>
+<br>
+<input type="text" disabled="disabled" name="ehealth" value="">
+<br><br><br><br><br><br><br><br><br><br><center><img src="gr/finalboss.gif" name="monster" height="350" width="600"></center><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<input type="button" value="Attack!!" onClick="dmg()" name="a">
+<input type="button" value="RUN!!!" onClick="run()">
+<br>
+<br>
+<br>
+<input type="text" disabled="disabled" name="yhealth" value="300000">
+<audio autoplay loops>
+<source src="bossbattle.mp3" type="audio/mpeg">
+</audio>
+</form>
+</center>
+</body>
+</html>

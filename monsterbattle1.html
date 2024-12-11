@@ -1,0 +1,213 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="An amazing RNG-based game! WARNING:(will make you rage)">
+<meta name="keywords" content="JavaScript, JavaScript game, RNG game, game, HTML game">
+<meta name="author" content="Romeo Shamoun">
+<title>Battle!</title>
+<script type="text/JavaScript">
+monster = new Array()
+monster[0] = "Goblin" 
+monster[1] = "Slime"
+monster[2] = "Violent Chicken"
+monster[3] = "Dumb Fairy"
+monster[4] = "Lost Cause"
+monster[5] = "Zombie"
+monster[6] = "Tree"
+
+health = new Array()
+health[0] = "1"
+health[1] = "5"
+health[2] = "10"
+health[3] = "15"
+health[4] = "20"
+health[5] = "25"
+health[6] = "30"
+health[7] = "35"
+health[8] = "40"
+health[9] = "45"
+
+damage = new Array()
+damage[0] = "0"
+damage[1] = "2"
+damage[2] = "4"
+damage[3] = "6"
+damage[4] = "8"
+damage[5] = "10"
+damage[6] = "12"
+damage[7] = "14"
+damage[8] = "16"
+damage[9] = "18"
+damage[10] = "20"
+damage[11] = "22"
+damage[12] = "24"
+damage[13] = "25"
+damage[14] = "23"
+damage[15] = "21"
+damage[16] = "19"
+damage[17] = "17"
+damage[18] = "15"
+damage[19] = "13"
+damage[20] = "11"
+damage[21] = "9"
+damage[22] = "7"
+damage[23] = "5"
+damage[24] = "3"
+damage[25] = "1"
+
+enemydamage = new Array()
+enemydamage[0] = "0"
+enemydamage[1] = "2"
+enemydamage[2] = "4"
+enemydamage[3] = "6"
+enemydamage[4] = "8"
+enemydamage[5] = "10"
+enemydamage[6] = "12"
+enemydamage[7] = "14"
+enemydamage[8] = "16"
+enemydamage[9] = "18"
+enemydamage[10] = "20"
+enemydamage[11] = "22"
+enemydamage[12] = "24"
+enemydamage[13] = "25"
+enemydamage[14] = "23"
+enemydamage[15] = "21"
+enemydamage[16] = "19"
+enemydamage[17] = "17"
+enemydamage[18] = "15"
+enemydamage[19] = "13"
+enemydamage[20] = "11"
+enemydamage[21] = "9"
+enemydamage[22] = "7"
+enemydamage[23] = "5"
+enemydamage[24] = "3"
+enemydamage[25] = "1"
+
+now = new Date()
+
+mnum = (now.getMilliseconds())%7
+
+hnum = (now.getMilliseconds())%10
+
+dnum = (now.getMilliseconds())%26
+
+ednum = (now.getMilliseconds())%26
+
+var h = Number(health[hnum])
+
+var d = Number(damage[dnum])
+
+function pickmonster()
+{
+
+now = new Date()
+num = (now.getMilliseconds())%7
+document.myform.ename.value = monster[num]
+
+if(num == 0)
+{document.monster.src = "gr/goblin.jpg"}
+else if(num == 1)
+{document.monster.src = "gr/slime.jpg"}
+else if(num == 2)
+{document.monster.src = "gr/violentchicken.gif"}
+else if(num == 3)
+{document.monster.src = "gr/dumbfairy.gif"}
+else if(num == 4)
+{document.monster.src = "gr/blb.jpg"}
+else if(num == 5)
+{document.monster.src = "gr/zombie.gif"}
+else if(num == 6)
+{document.monster.src = "gr/tree.png"}
+
+}
+
+function pickhealth()
+{
+
+now = new Date()
+hnum 
+document.myform.ehealth.value = Number(health[hnum])
+
+}
+
+function dmg()
+{
+
+now = new Date()
+dnum = (now.getMilliseconds())%26
+var h = Number(document.myform.ehealth.value)
+var d = Number(damage[dnum])
+var val = h - d
+document.myform.ehealth.value = Number(val)
+alert("You have inflicted " + d + " damage!!!");
+
+if (document.myform.ehealth.value <= 0)
+{
+
+alert("You defeated " + document.myform.ename.value + "!")
+top.location.href = "info2.html"
+
+}
+
+if (document.myform.ehealth.value > 0)
+{
+
+eattack()
+
+}
+
+}
+
+function run()
+{
+
+top.location.href = "newmon2.html"
+
+}
+
+function eattack()
+{
+
+now = new Date()
+ednum = (now.getMilliseconds())%26
+alert(document.myform.ename.value + " is attacking!")
+var yh = Number(document.myform.yhealth.value)
+var yd = Number(enemydamage[ednum])
+var at = yh - yd
+document.myform.yhealth.value = Number(at)
+alert(document.myform.ename.value + " inflicted " + yd + " damage!!!");
+
+if (document.myform.yhealth.value <= 0)
+{
+
+alert("You have been slain...")
+top.location.href = "death.html"
+
+}
+}
+
+</script>
+</head>
+
+<body onLoad="pickmonster(),pickhealth()" bgcolor="#000000">
+<center>
+<form name="myform">
+<input type="text" disabled="disabled" name="ename" value="">
+<br>
+<br>
+<input type="text" disabled="disabled" name="ehealth" value="">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><center><img src="" name="monster" height="225" width="300"></center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<input type="button" value="Attack!!" onClick="dmg()" name="a">
+<input type="button" value="RUN!!!" onClick="run()">
+<br>
+<br>
+<br>
+<input type="text" disabled="disabled" name="yhealth" value="25">
+<audio autoplay loops>
+<source src="fight1.mp3" type="audio/mpeg">
+</audio>
+</form>
+</center>
+</body>
+</html>

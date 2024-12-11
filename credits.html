@@ -1,0 +1,195 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="An amazing RNG-based game! WARNING:(will make you rage)">
+<meta name="keywords" content="JavaScript, JavaScript game, RNG game, game, HTML game">
+<meta name="author" content="Greih Murray & Romeo Shamoun">
+<title></title>
+<style type="text/css">
+body{overflow:hidden;}
+
+h1{color:red;}
+
+p{color:red;}
+
+.container {
+    width: 40em;
+    height: 62em;
+    margin: 1em auto;
+    overflow: hidden;
+    background: black;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.marquee {
+    top: 1em;
+    position: relative;
+	height: 62em;
+    animation: marquee 20000s linear ;
+	background:black;
+
+}
+
+.marquee:hover {
+    animation-play-state: ;
+}
+
+/* Make it move! */
+@keyframes marquee {
+    0%   { top:   58em }
+    100% { top: -100000em }
+}
+
+/* Make it look pretty */
+.microsoft .marquee {
+	margin: 0;
+    padding: 0 1em;
+    line-height: 1.5em;
+    font: 1em 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.microsoft:before, .microsoft::before,
+.microsoft:after,  .microsoft::after {
+    left: 0;
+    z-index: 1;
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 2em;
+    background-image: linear-gradient(180deg, #FFF, rgba(255,255,255,0));
+}
+
+.microsoft:after, .microsoft::after {
+    bottom: 95;
+    transform: rotate(180deg);
+}
+
+.microsoft:before, .microsoft::before {
+    top: 0;
+}
+
+/* Style the links */
+.vanity {
+    color: #333;
+    text-align: center;
+    font: .75em 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.vanity a, .microsoft a {
+    color: #1570A6;
+    transition: color .5s;
+    text-decoration: none;
+}
+
+.vanity a:hover, .microsoft a:hover {
+    color: #F65314;
+}
+
+/* Style toggle button */
+.toggle {
+	display: block;
+    margin: 2em auto;
+}
+</style>
+<script language="javascript">
+$(".toggle").on("click", function () {
+    $(".container").toggleClass("microsoft");
+});
+
+function s()
+{
+
+setTimeout(leave,50000)
+
+}
+
+function leave()
+{
+parent.location.href = "index.html"
+}
+</script>
+</head>
+
+<body bgcolor="black" onLoad="s()" style="margin-bottom:0cm;">
+<h1 align="center">In Loving Memory of...</h1>
+<div class="microsoft container">
+<center>
+    
+	<ul class="marquee">
+	<p>Goblin</p>
+	<br>
+	<p>Slime</p>
+	<br>
+	<p>Violent Chicken</p>
+	<br>
+	<p>Bradley</p>
+	<br>
+	<p>Dumb Fairy</p>
+	<br>
+	<p>Lost Cause</p>
+	<br>
+	<p>Zombie</p>
+	<br>
+	<p>Tree</p>
+	<br>
+	<p>Greih</p>
+	<br>
+	<p>Troll</p>
+	<br>
+	<p>Vengeant Spirit</p>
+	<br>
+	<p>Orc</p>
+	<br>
+	<p>Evil Wizard</p>
+	<br>
+	<p>Mercenary</p>
+	<br>
+	<p>Lesser Demon</p>
+	<br>
+	<p>Giant Orc</p>
+	<br>
+	<p>Dark Dragon</p>
+	<br>
+	<p>Muscular Sea Horse</p>
+	<br>
+	<p>Uldaar-Vauldufen, the Greater Demon of Darkness</p>
+	<br>
+	<p>The Narrator (The backup narrator was the only one that lived)</p>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<h1>Special thanks to:</h1>
+	<br><p>Greih</p>
+	<br><p>For creating the credits and the HUG button</p>
+	<br><p>Bradley</p>
+	<br><p>For thoroughly testing the game</p>
+	<br><p>Logan</p>
+	<br><p>For finding background music</p>
+	<br><p>Romeo</p>
+	<br><p>For creating the game, and failing an endless amount of times</p>
+	<br><p>Mr. Farthing</p>
+	<br><p>For making this project possible</p>
+	<br><br><br><p>No living organisms were harmed in the making of this game.</p><br><br><br><br><br>
+
+	<h1>Congratulations! YOU WON!</h1>
+
+	</ul>
+	</center>
+	</div>
+
+<audio autoplay loops>
+
+<source src="dd.mp3" type="audio/mpeg">
+
+</audio>
+
+</body>
+
+
+
+<footer>
+
+</footer>
+
+</html>
